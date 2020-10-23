@@ -1,7 +1,7 @@
 const path = require("path");
+const webpack = require("webpack");
 
 module.exports = {
-  name: "wordrelay-setting",
   mode: "development", // 실서비스: production
   devtool: "eval",
 
@@ -22,17 +22,28 @@ module.exports = {
         test: /\.jsx?/, // 이 룰을 js와 jsx 확장자에다가 적용하겠다. (정규표현식)
         loader: "babel-loader",
         options: {
-          presets: ["@babel/preset-env", "@babel/preset-react"],
+          presets: [
+            [
+              "@babel/preset-env",
+              {
+                targets: {
+                  browsers: ["> 5% in KR", "last 2 chrome versions"], // https://github.com/browserslist/browserslist
+                },
+                //debug: true,
+              },
+            ],
+            "@babel/preset-react",
+          ], // preset = plugin 들 여러개 모아놓은 것
           plugins: ["@babel/plugin-proposal-class-properties"],
         },
       },
     ],
   },
 
+  plugins: [new webpack.LoaderOptionsPlugin({ debug: true })],
+
   output: {
     path: path.join(__dirname, "dist"), // __dirname 은 현재 폴더의 경로를 뜻함 C:\..\..2.끝말잇기
     filename: "app.js",
   }, // 출력
 };
-
-const a = {};
