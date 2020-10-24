@@ -34,7 +34,10 @@ module.exports = {
             ],
             "@babel/preset-react",
           ], // preset = plugin 들 여러개 모아놓은 것
-          plugins: ["@babel/plugin-proposal-class-properties"],
+          plugins: [
+            "@babel/plugin-proposal-class-properties",
+            "react-hot-loader/babel",
+          ],
         },
       },
     ],
