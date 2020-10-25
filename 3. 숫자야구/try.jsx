@@ -4,7 +4,10 @@ class Try extends Component {
   render() {
     return (
       <>
-        <li>{this.props.value.fruit} {this.props.index}</li>
+        <li>
+          <div>{this.props.tryInfo.try}</div>
+          <div>{this.props.tryInfo.result}</div>
+        </li>
       </>
     );
   }
