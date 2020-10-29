@@ -47,5 +47,3 @@ module.exports = {
     filename: "app.js",
   }, // 출력
 };
-
-const a = {};
