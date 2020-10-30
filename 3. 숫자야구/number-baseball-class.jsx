@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Try from './try';
+import Try from './try-class';
 
 function getNumbers() { // 숫자 네 개를 겹치지 않고 랜덤하게 뽑는 함수
   const candidate = [1, 2, 3, 4, 5, 6, 7, 8, 9];
